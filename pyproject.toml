@@ -1,0 +1,29 @@
+[project]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta",
+    "Operating System :: Windows",
+]
+name = "qdvisaserver"
+version = "1.0.0"
+license = "MIT AND (Apache-2.0 OR BSD-2-Clause)"
+description = "Visa Server for Quantum Design PPMS/Versalab"
+requires-python = "<3.13"
+dependencies = [
+    "pywin32",
+]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+    "integration",
+]
+
+[project.optional-dependencies]
+tests = [
+    "pytest>=3.2.5",
+    "pyvisa>=1.8",
+    "pyvisa-py>=0.4.1",
+]

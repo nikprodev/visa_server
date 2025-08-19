@@ -1,0 +1,5 @@
+__VENDOR__ = 'LinkBone'
+__MODEL__ = 'LinkBone8x8Matrix'
+__SERIAL__ = 'B0199239D8E'
+__FIRMWARE__ = 'V1.02'
+__IPADDRESS__ = '192.168.81.12'
