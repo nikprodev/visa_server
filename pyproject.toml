@@ -16,10 +16,6 @@ dependencies = [
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra -q"
-testpaths = [
-    "tests",
-    "integration",
-]
 
 [project.optional-dependencies]
 tests = [

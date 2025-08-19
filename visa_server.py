@@ -2,10 +2,10 @@ import sys
 import os
 import signal
 import logging
-from  threading import Timer
 import time
 import vxi11_server as vxi11
 from backend.qd_ppms.classes import PPMSVersalab
+from backend.linkbone8x8.classes import LinkBone8x8
 
 _logging = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ if __name__ == '__main__':
 	
     instr_server = vxi11.InstrumentServer(ip_address='localhost')
     instr_server.add_device_handler(PPMSVersalab, "inst0")
-    #instr_server.add_device_handler(LinkBone8x8Device, "inst1")
+    #instr_server.add_device_handler(LinkBone8x8, "inst1")
 
     instr_server.listen()
 
