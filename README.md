@@ -4,7 +4,7 @@ This Python script runs in a Windows environment and communicates with the PPMS/
 
 The program requires Python 3 (version ≤ 3.12) and the <a href="https://pypi.org/project/pywin32/">pywin32</a> extension to access Windows API functions. Also, for the server to work, the _rpcbind_ portmapper service is required, which can be launched in a WSL Linux virtual environment.
 
-To send requests to the server, you can use the <a href="https://pypi.org/project/PyVISA/">pyvisa</a> package with the Python backend <a href="https://pypi.org/project/PyVISA-py/">pyvisa-pi</a>. For example, to request device identification:
+To send requests to the server, you can use the <a href="https://pypi.org/project/PyVISA/">pyvisa</a> package with the Python backend <a href="https://pypi.org/project/PyVISA-py/">pyvisa-py</a>. For example, to request device identification:
 ```
 import pyvisa
 rm = pyvisa.ResourceManager()
