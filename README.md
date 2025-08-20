@@ -86,5 +86,5 @@ Modes:
 
 ## Instrument development
 
-Additional instruments can be added as packages in the `backend/base` folder, inheriting from the _BaseDevice_ class.
+Additional instruments can be added as packages in the `backend` folder, inheriting from the _BaseDevice_ class.
 Device parameters such as Manufacturer, Model, IP address, and others can be defined in the `__init__.py` file.
