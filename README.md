@@ -136,10 +136,115 @@ _value_ is set in "Oe", _rate_ is set in "Oe/sec", _mode_ is not used
 
 Approach codes:
 
-| Code | Mode      |
+| Code | Approach  |
 |------|-----------|
 | 1    | Linear    |
 | 2    | Oscillate |
+
+### Chamber
+
+**Get chamber state:**
+
+```
+CHAMBER?
+```
+
+_Response:_
+
+```
+'0,760.0,"Torr",3,"Sealed"\r\n'
+```
+
+Format: *return_code, pressure_value, units, state_code, state_description*
+
+States:
+
+| Code | State                 |
+|------|-----------------------|
+| 0    | Sealed                |
+| 1    | Purged and Sealed     |
+| 2    | Vented and Sealed     |
+| 3    | Sealed                |
+| 4    | Performing Purge/Seal |
+| 5    | Performing Vent/Seal  |
+| 6    | Pre-HiVac             |
+| 7    | HiVac                 |
+| 8    | Pumping Continuously  |
+| 9    | Flooding Continuously |
+| 14   | HiVac Error           |
+| 15   | General Failure       |
+
+**Change chamber state:**
+
+```
+CHAMBER 1
+```
+
+_Response:_
+
+```
+'OK\r\n'
+```
+
+Format: *action*
+
+Action codes:
+
+| Code | Action     |
+|------|------------|
+| 0    | Seal       |       
+| 1    | Purge/Seal |
+| 2    | Vent/Seal  |
+| 3    | Pump Cont. |
+| 4    | Vent Cont. |
+| 5    | HiVac      |
+
+### Rotator (if installed)
+
+**Get position:**
+
+```
+POS?
+```
+
+_Response:_
+
+```
+'0,30.0,"Deg",1,"In position"\r\n'
+```
+
+Format: *return_code, angle_value, units, state_code, state_description*
+
+States:
+
+| Code | State       |
+|------|-------------|
+| 1    | In position |
+| 2    | Calibrating |
+| 5    | Moving      |
+
+**Set position:**
+
+```
+POS 90, 30, 0
+```
+
+_Response:_
+
+```
+'OK\r\n'
+```
+
+Format: *value, rate, mode*\
+_value_ is set in "Degrees", _rate_ is set in "Deg/sec" (max. 30)
+
+Mode codes:
+
+| Code | Mode              |
+|------|-------------------|
+| 0    | Move to position  |
+| 1    | Move to index     |
+| 2    | Redefine position |
 
 ## Instrument development
 
