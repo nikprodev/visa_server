@@ -24,7 +24,7 @@ inst = rm.open_resource("TCPIP0::127.0.0.1::inst0")
 print(inst.query("*IDN?"))
 ```
 
-_Output:_
+_Response:_
 
 ```
 'Quantum Design,PPMSVersaLab,XXXXXX,V1.0.6.4\r\n'
@@ -40,7 +40,7 @@ _Output:_
 TEMP?
 ```
 
-_Output:_
+_Response:_
 
 ```
 '0,300.0,"K",1,"Stable"\r\n'
@@ -68,7 +68,7 @@ States:
 TEMP 320.5, 20, 0
 ```
 
-_Output:_
+_Response:_
 
 ```
 'OK\r\n'
@@ -77,12 +77,69 @@ _Output:_
 Format: *value, rate, mode*\
 _value_ is set in "K", _rate_ is set in "K/min" (max. 20)
 
-Modes:
+Mode codes:
 
 | Code | Mode         |
 |------|--------------|
 | 0    | Fast Settle  |
 | 1    | No Overshoot |
+
+### Field
+
+**Get field:**
+
+```
+FIELD?
+```
+
+_Response:_
+
+```
+'0,10.0,"Oe",1,"Stable"\r\n'
+```
+
+Format: *return_code, value, units, state_code, state_description*
+
+States:
+
+| Code | State            |
+|------|------------------|
+| 1    | Stable           |
+| 2    | Switch Warming   |
+| 3    | Switch Cooling   |
+| 4    | Holding (Driven) |
+| 5    | Iterate          |
+| 6    | Ramping          |
+| 7    | Ramping          |
+| 8    | Resetting        |
+| 9    | Current Error    |
+| 10   | Switch Error     |
+| 11   | Quenching        |
+| 12   | Charging Error   |
+| 14   | PSU Error        |
+| 15   | General Failure  |
+
+**Set field:**
+
+```
+FIELD 100.0, 20, 1, 0 
+```
+
+_Response:_
+
+```
+'OK\r\n'
+```
+
+Format: *value, rate, approach, mode*\
+_value_ is set in "Oe", _rate_ is set in "Oe/sec", _mode_ is not used
+
+Approach codes:
+
+| Code | Mode      |
+|------|-----------|
+| 1    | Linear    |
+| 2    | Oscillate |
 
 ## Instrument development
 
